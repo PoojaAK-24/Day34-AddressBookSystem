@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -9,6 +10,7 @@ namespace Day34_AddressBookSystem
     {
         public static string path = @"E:\Fellowship\Day34-AddressBookSystem\Day34-AddressBookSystem\AddressBookFile.txt";
         public static string csvPath = @"E:\Fellowship\Day34-AddressBookSystem\Day34-AddressBookSystem\AddressBook.csv";
+        public static string jsonPath = @"E:\Fellowship\Day34-AddressBookSystem\Day34-AddressBookSystem\AddressBook.json";
         public static void WriteUsingStreamWriter(List<ContactPerson> data)
         {
 
@@ -92,6 +94,39 @@ namespace Day34_AddressBookSystem
             else
             {
                 Console.WriteLine("File not avilable..");
+            }
+        }
+
+        public static void WriteContactsInJSONFile(List<ContactPerson> contacts)
+        {
+            if (File.Exists(jsonPath))
+            {
+                JsonSerializer jsonSerializer = new JsonSerializer();
+                using (StreamWriter streamWriter = new StreamWriter(jsonPath))
+                using (JsonWriter writer = new JsonTextWriter(streamWriter))
+                {
+                    jsonSerializer.Serialize(writer, contacts);
+                }
+                Console.WriteLine("Conatact stored in Json File...");
+            }
+            else
+            {
+                Console.WriteLine("File not found...");
+            }
+        }
+        public static void ReadContactsFromJSONFile()
+        {
+            if (File.Exists(jsonPath))
+            {
+                IList<ContactPerson> contactsRead = JsonConvert.DeserializeObject<IList<ContactPerson>>(File.ReadAllText(jsonPath));
+                foreach (ContactPerson contact in contactsRead)
+                {
+                    contact.print();
+                }
+            }
+            else
+            {
+                Console.WriteLine("File not found...");
             }
         }
     }
