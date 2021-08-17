@@ -7,7 +7,8 @@ namespace Day34_AddressBookSystem
 {
     class FileWriter
     {
-        public static string path = @"G:\Bridgelab\CompleteAddressBook\CompleteAddressBook\AddressBookFile.txt";
+        public static string path = @"E:\Fellowship\Day34-AddressBookSystem\Day34-AddressBookSystem\AddressBookFile.txt";
+        public static string csvPath = @"E:\Fellowship\Day34-AddressBookSystem\Day34-AddressBookSystem\AddressBook.csv";
         public static void WriteUsingStreamWriter(List<ContactPerson> data)
         {
 
@@ -32,7 +33,7 @@ namespace Day34_AddressBookSystem
 
         public static void readFile()
         {
-            if (File.Exists(path)) 
+            if (File.Exists(path))
             {
                 using (StreamReader streamReader = File.OpenText(path))
                 {
@@ -40,6 +41,51 @@ namespace Day34_AddressBookSystem
                     while ((data = streamReader.ReadLine()) != null)
                     {
                         Console.WriteLine(data);
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("File not avilable..");
+            }
+        }
+        public static void csvFileWriter(List<ContactPerson> dataa)
+        {
+
+            if (File.Exists(csvPath))
+            {
+                File.WriteAllText(csvPath, String.Empty);
+                using (StreamWriter streamWriter = File.AppendText(csvPath))
+                {
+                    streamWriter.WriteLine("FirstName,LastName,Address,City,State,Zip,Contact,Email");
+                    foreach (ContactPerson contacts in dataa)
+                    {
+                        streamWriter.WriteLine(contacts.firstName + "," + contacts.lastName + "," + contacts.address + "," + contacts.city + "," + contacts.state + "," + contacts.zip + "," + contacts.contact + "," + contacts.email);
+                    }
+                    streamWriter.Close();
+                    Console.WriteLine("Contacts Stored in Csv_File.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("File not avilable..");
+            }
+        }
+        public static void readFromCSVFile()
+        {
+            if (File.Exists(csvPath))
+            {
+                using (StreamReader streamReader = File.OpenText(csvPath))
+                {
+                    string data = "";
+                    while ((data = streamReader.ReadLine()) != null)
+                    {
+                        string[] csv = data.Split(",");
+                        foreach (string dataCsv in csv)
+                        {
+                            Console.Write(dataCsv + " ");
+                        }
+                        Console.WriteLine();
                     }
                 }
             }

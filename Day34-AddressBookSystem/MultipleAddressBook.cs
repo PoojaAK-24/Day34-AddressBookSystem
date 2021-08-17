@@ -201,7 +201,7 @@ namespace Day34_AddressBookSystem
 					{
 						contact.print();
 					}
-					break; 
+					break;
 			}
 		}
 		public void writeInTxtFile()
@@ -212,6 +212,15 @@ namespace Day34_AddressBookSystem
 		public void readFromTxtFile()
 		{
 			FileWriter.readFile();
+		}
+		public void writeInCsvFile()
+		{
+			FileWriter.csvFileWriter(userList);
+		}
+
+		public void readFromCsvFile()
+		{
+			FileWriter.readFromCSVFile();
 		}
 	}
 }

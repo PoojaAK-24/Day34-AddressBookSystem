@@ -15,7 +15,7 @@ namespace Day34_AddressBookSystem
 			while (flag)
 			{
 				Console.WriteLine("******WELCOME TO ADDRESS BOOK******");
-				Console.WriteLine("1.Create_AddressBooks \n2.Open_AddressBooks \n3.Count_TotalContacts \n4.Serch_FromAllContact \n5.DeletAddressBook \n6.StoreContactsIn_TextFile \n7.ReadContactsFrom_TextFile \n8.Exit");
+				Console.WriteLine("1.Create_AddressBooks \n2.Open_AddressBooks \n3.Count_TotalContacts \n4.Serch_FromAllContact \n5.DeletAddressBook \n6.StoreContactsIn_TextFile \n7.ReadContactsFrom_TextFile \n8.StoreContactsIn_CsvFile \n9.ReadContactsFrom_CsvFile \n10.Exit");
 				int choice = Convert.ToInt32(Console.ReadLine());
 				int size = addressBookDict.Count;
 				switch (choice)
@@ -130,6 +130,28 @@ namespace Day34_AddressBookSystem
 						addressBookDict[readContacts].readFromTxtFile();
 						break;
 					case 8:
+						Console.WriteLine($"You have {size} AddressBook.");
+
+						foreach (var address in addressBookDict.Keys)
+						{
+							Console.WriteLine(address);
+						}
+						Console.Write("Enter Address_BookName : ");
+						string writeInCsv = Console.ReadLine();
+						addressBookDict[writeInCsv].writeInCsvFile();
+						break;
+					case 9:
+						Console.WriteLine($"You have {size} AddressBook.");
+
+						foreach (var address in addressBookDict.Keys)
+						{
+							Console.WriteLine(address);
+						}
+						Console.Write("Enter Address_BookName : ");
+						string readContact = Console.ReadLine();
+						addressBookDict[readContact].readFromCsvFile();
+						break;
+					case 10:
 						flag = false;
 						break;
 					default:
@@ -246,7 +268,7 @@ namespace Day34_AddressBookSystem
 								Console.WriteLine("Invalid option....");
 								break;
 						}
-						break; 
+						break;
 					case 8:
 						flag = false;
 						break;

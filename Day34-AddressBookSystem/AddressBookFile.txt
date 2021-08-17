@@ -1,2 +1,2 @@
-﻿FirstName	LastName	Address	City	State	Zip	Contact	Email
-pooja	reddy	rag	smg	ka	577201 9087654321	poo@gmail.com
+FirstName	LastName	 Address	 City	 State	 Zip	 Contact	 Email
+poo	anu	sm	awm	ka	123456	8908762729	anu@gmail.com
