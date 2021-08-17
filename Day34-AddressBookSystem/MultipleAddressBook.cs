@@ -8,7 +8,7 @@ namespace Day34_AddressBookSystem
 	class MultipleAddressBook
 	{
 		public List<ContactPerson> userList;
-		public MultipleAddressBook()
+		public MultipleAddressBook() 
 		{
 			this.userList = new List<ContactPerson>();
 		}
@@ -133,7 +133,7 @@ namespace Day34_AddressBookSystem
 			}
 			else
 			{
-				Console.WriteLine($"Contect not Found From {0}", place);
+				Console.WriteLine($"Contact not Found From {0}", place);
 			}
 		}
 		public bool isPlaceExist(string place)
@@ -145,7 +145,7 @@ namespace Day34_AddressBookSystem
 		}
 		public void CountContact(string countPlace)
 		{
-			int count = 0; 
+			int count = 0;
 			bool exits = isPlaceExist(countPlace);
 			if (exits)
 			{
@@ -163,6 +163,20 @@ namespace Day34_AddressBookSystem
 			else
 			{
 				Console.WriteLine($"Contact not Found From {0}", countPlace);
+			}
+		}
+		public void SortAlphabetically()
+		{
+			List<string> sortedList = new List<string>();
+			foreach (ContactPerson getContacts in userList)
+			{
+				string sortByFirstName = getContacts.firstName.ToString();
+				sortedList.Add(sortByFirstName);
+			}
+			sortedList.Sort();
+			foreach (string sortedContact in sortedList)
+			{
+				Console.WriteLine(sortedContact);
 			}
 		}
 	}
