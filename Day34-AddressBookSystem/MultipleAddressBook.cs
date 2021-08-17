@@ -88,7 +88,7 @@ namespace Day34_AddressBookSystem
 			}
 		}
 
-		public void DeletContact(string Fname)
+		public void DeleteContact(string Fname)
 		{
 			int size = userList.Count;
 			int check = 0;
@@ -109,7 +109,7 @@ namespace Day34_AddressBookSystem
 				}
 			}
 		}
-		public void SerchContact(string place)
+		public void SearchContact(string place)
 		{
 			List<string> person = new List<string>();
 			bool exits = isPlaceExist(place);
@@ -133,7 +133,7 @@ namespace Day34_AddressBookSystem
 			}
 			else
 			{
-				Console.WriteLine($"Contect not Found From {0}", place);
+				Console.WriteLine($"Contact not Found From {0}", place);
 			}
 		}
 		public bool isPlaceExist(string place)
@@ -162,7 +162,7 @@ namespace Day34_AddressBookSystem
 			}
 			else
 			{
-				Console.WriteLine($"Contect not Found From {0}", countPlace);
+				Console.WriteLine($"Contact not Found From {0}", countPlace);
 			}
 		}
 		public void SortAlphabetically(int choice1)

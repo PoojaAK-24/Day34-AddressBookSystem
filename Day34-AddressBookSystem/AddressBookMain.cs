@@ -15,7 +15,7 @@ namespace Day34_AddressBookSystem
 			while (flag)
 			{
 				Console.WriteLine("******WELCOME TO ADDRESS BOOK******");
-				Console.WriteLine("1.Create_AddressBooks \n2.Open_AddressBooks \n3.Count_TotalContacts \n4.Serch_FromAllContact \n5.DeletAddressBook \n6.StoreContactsIn_TextFile" +
+				Console.WriteLine("1.Create_AddressBooks \n2.Open_AddressBooks \n3.Count_TotalContacts \n4.Search_FromAllContact \n5.DeleteAddressBook \n6.StoreContactsIn_TextFile" +
 					"\n7.ReadContactsFrom_TextFile \n8.StoreContactsIn_CsvFile \n9.ReadContactsFrom_CsvFile \n10.StoreContactsIn_JsonFile \n11.ReadConatctsFrom_JsonFile\n12.Exit");
 				int choice = Convert.ToInt32(Console.ReadLine());
 				int size = addressBookDict.Count;
@@ -23,8 +23,8 @@ namespace Day34_AddressBookSystem
 				{
 					case 1:
 						Console.Write("Enter AddressBook Name : ");
-						string book = Console.ReadLine();
-						bool check = DuplicatAddress(book);
+						string book = Console.ReadLine(); 
+						bool check = DuplicateAddress(book);
 						if (check)
 						{
 							Console.Write("Enter AddressBook Name again : ");
@@ -72,12 +72,12 @@ namespace Day34_AddressBookSystem
 						break;
 
 					case 4:
-						Console.Write("Enter City Or State name U want To Serch : ");
+						Console.Write("Enter City Or State name U want To Search : ");
 						string place = Console.ReadLine();
 						foreach (var addbook in addressBookDict.Keys)
 						{
 							Console.WriteLine("Contacts From AddressBook : " + addbook);
-							addressBookDict[addbook].SerchContact(place);
+							addressBookDict[addbook].SearchContact(place);
 						}
 						break;
 
@@ -171,7 +171,7 @@ namespace Day34_AddressBookSystem
 				}
 			}
 		}
-		public static bool DuplicatAddress(string bookName)
+		public static bool DuplicateAddress(string bookName)
 		{
 			bool check = false;
 			foreach (var address in addressBookDict)
@@ -215,7 +215,7 @@ namespace Day34_AddressBookSystem
 			while (flag)
 			{
 				Console.WriteLine("******WELCOME TO ADDRESS BOOK******");
-				Console.WriteLine("1.Add_Contact \n2.Display_Contact \n3.Delet_Contact \n4.Update_Contact \n5.Serch_FromAllContact \n6.Count_Contacts\n7.Sort_Contacts\n8.Exit");
+				Console.WriteLine("1.Add_Contact \n2.Display_Contact \n3.Delete_Contact \n4.Update_Contact \n5.Search_FromAllContact \n6.Count_Contacts\n7.Sort_Contacts\n8.Exit");
 				Console.WriteLine("Enter Your Choice:");
 				int input = Convert.ToInt32(Console.ReadLine());
 				switch (input)
@@ -230,9 +230,9 @@ namespace Day34_AddressBookSystem
 						addressBookDict[bookname].Display();
 						break;
 					case 3:
-						Console.Write("Enter FirstName U want to Delet : ");
+						Console.Write("Enter FirstName U want to Delete : ");
 						string deletName = Console.ReadLine();
-						addressBookDict[bookname].DeletContact(deletName);
+						addressBookDict[bookname].DeleteContact(deletName);
 						break;
 					case 4:
 						Console.WriteLine("Enter FirstName U want To Update");
@@ -240,11 +240,11 @@ namespace Day34_AddressBookSystem
 						addressBookDict[bookname].EditContact(fname);
 						break;
 					case 5:
-						Console.Write("Enter City Or State name U want To Serch : ");
+						Console.Write("Enter City Or State name U want To Search : ");
 						string place = Console.ReadLine();
 						foreach (var addbook in addressBookDict.Keys)
 						{
-							addressBookDict[addbook].SerchContact(place);
+							addressBookDict[addbook].SearchContact(place);
 						}
 						break;
 					case 6:

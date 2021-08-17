@@ -8,7 +8,7 @@ using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
 namespace Day34_AddressBookSystem
 {
-    class FileWriter
+    class FileWriter 
     {
         public static string path = @"E:\Fellowship\Day34-AddressBookSystem\Day34-AddressBookSystem\Files\AddressBookFile.txt";
         public static string csvPath = @"E:\Fellowship\Day34-AddressBookSystem\Day34-AddressBookSystem\Files\AddressBook.csv";

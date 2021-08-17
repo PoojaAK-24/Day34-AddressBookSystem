@@ -13,7 +13,7 @@ namespace Day34_AddressBookSystem
 		public String state;
 		public String zip;
 		public String contact;
-		public String email;
+		public String email; 
 
 
 		public ContactPerson(String firstName, String lastName, String address, String city, String state, String zip, String contact, String email)
