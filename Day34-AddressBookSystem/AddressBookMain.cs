@@ -10,7 +10,7 @@ namespace Day34_AddressBookSystem
 		public static void Main(string[] args)
 		{
 
-			bool flag = true; 
+			bool flag = true;
 
 			while (flag)
 			{
@@ -23,7 +23,7 @@ namespace Day34_AddressBookSystem
 					case 1:
 						Console.Write("Enter AddressBook Name : ");
 						string book = Console.ReadLine();
-						bool check = DuplicateAddress(book);
+						bool check = DuplicatAddress(book);
 						if (check)
 						{
 							Console.Write("Enter AddressBook Name again : ");
@@ -76,7 +76,7 @@ namespace Day34_AddressBookSystem
 						foreach (var addbook in addressBookDict.Keys)
 						{
 							Console.WriteLine("Contacts From AddressBook : " + addbook);
-							addressBookDict[addbook].SearchContact(place);
+							addressBookDict[addbook].SerchContact(place);
 						}
 						break;
 
@@ -116,7 +116,7 @@ namespace Day34_AddressBookSystem
 				}
 			}
 		}
-		public static bool DuplicateAddress(string bookName)
+		public static bool DuplicatAddress(string bookName)
 		{
 			bool check = false;
 			foreach (var address in addressBookDict)
@@ -160,7 +160,7 @@ namespace Day34_AddressBookSystem
 			while (flag)
 			{
 				Console.WriteLine("******WELCOME TO ADDRESS BOOK******");
-				Console.WriteLine("1.Add_Contact \n2.Display_Contact \n3.Delete_Contact \n4.Update_Contact \n5.Search_FromAllContact \n6.Count_Contacts\n7.Sort_Contacts\n8.Exit");
+				Console.WriteLine("1.Add_Contact \n2.Display_Contact \n3.Delet_Contact \n4.Update_Contact \n5.Serch_FromAllContact \n6.Count_Contacts\n7.Sort_Contacts\n8.Exit");
 				Console.WriteLine("Enter Your Choice:");
 				int input = Convert.ToInt32(Console.ReadLine());
 				switch (input)
@@ -177,7 +177,7 @@ namespace Day34_AddressBookSystem
 					case 3:
 						Console.Write("Enter FirstName U want to Delet : ");
 						string deletName = Console.ReadLine();
-						addressBookDict[bookname].DeleteContact(deletName);
+						addressBookDict[bookname].DeletContact(deletName);
 						break;
 					case 4:
 						Console.WriteLine("Enter FirstName U want To Update");
@@ -189,7 +189,7 @@ namespace Day34_AddressBookSystem
 						string place = Console.ReadLine();
 						foreach (var addbook in addressBookDict.Keys)
 						{
-							addressBookDict[addbook].SearchContact(place);
+							addressBookDict[addbook].SerchContact(place);
 						}
 						break;
 					case 6:
@@ -203,8 +203,27 @@ namespace Day34_AddressBookSystem
 						break;
 					case 7:
 
+						Console.WriteLine("Chooose option TO Sort Contacts by \n1. FirstName \n2. City \n3. State \n4. zip");
+						int option = Convert.ToInt32(Console.ReadLine());
 						Console.WriteLine("Alphabetically_Sorted_List");
-						addressBookDict[bookname].SortAlphabetically();
+						switch (option)
+						{
+							case 1:
+								addressBookDict[bookname].SortAlphabetically(1);
+								break;
+							case 2:
+								addressBookDict[bookname].SortAlphabetically(2);
+								break;
+							case 3:
+								addressBookDict[bookname].SortAlphabetically(3);
+								break;
+							case 4:
+								addressBookDict[bookname].SortAlphabetically(4);
+								break;
+							default:
+								Console.WriteLine("Invalid option....");
+								break;
+						} 
 						break;
 					case 8:
 						flag = false;

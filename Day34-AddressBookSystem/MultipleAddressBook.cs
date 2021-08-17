@@ -8,7 +8,7 @@ namespace Day34_AddressBookSystem
 	class MultipleAddressBook
 	{
 		public List<ContactPerson> userList;
-		public MultipleAddressBook() 
+		public MultipleAddressBook()
 		{
 			this.userList = new List<ContactPerson>();
 		}
@@ -88,7 +88,7 @@ namespace Day34_AddressBookSystem
 			}
 		}
 
-		public void DeleteContact(string Fname)
+		public void DeletContact(string Fname)
 		{
 			int size = userList.Count;
 			int check = 0;
@@ -109,7 +109,7 @@ namespace Day34_AddressBookSystem
 				}
 			}
 		}
-		public void SearchContact(string place)
+		public void SerchContact(string place)
 		{
 			List<string> person = new List<string>();
 			bool exits = isPlaceExist(place);
@@ -133,7 +133,7 @@ namespace Day34_AddressBookSystem
 			}
 			else
 			{
-				Console.WriteLine($"Contact not Found From {0}", place);
+				Console.WriteLine($"Contect not Found From {0}", place);
 			}
 		}
 		public bool isPlaceExist(string place)
@@ -162,21 +162,46 @@ namespace Day34_AddressBookSystem
 			}
 			else
 			{
-				Console.WriteLine($"Contact not Found From {0}", countPlace);
+				Console.WriteLine($"Contect not Found From {0}", countPlace);
 			}
 		}
-		public void SortAlphabetically()
+		public void SortAlphabetically(int choice1)
 		{
-			List<string> sortedList = new List<string>();
-			foreach (ContactPerson getContacts in userList)
+			Console.WriteLine("----------------------------------------------------------------------");
+			Console.WriteLine("FirstName   LastName   Address,  City,  State,  Zip,   Contact,  Email");
+			Console.WriteLine("----------------------------------------------------------------------");
+			switch (choice1)
 			{
-				string sortByFirstName = getContacts.firstName.ToString();
-				sortedList.Add(sortByFirstName);
-			}
-			sortedList.Sort();
-			foreach (string sortedContact in sortedList)
-			{
-				Console.WriteLine(sortedContact);
+				case 1:
+					userList.Sort(new Comparison<ContactPerson>((x, y) => string.Compare(x.firstName, y.firstName)));
+					foreach (ContactPerson contact in userList)
+					{
+						contact.print();
+					}
+					break;
+
+				case 2:
+					userList.Sort(new Comparison<ContactPerson>((x, y) => string.Compare(x.city, y.city)));
+					foreach (ContactPerson contact in userList)
+					{
+						contact.print();
+					}
+					break; 
+
+				case 3:
+					userList.Sort(new Comparison<ContactPerson>((x, y) => string.Compare(x.state, y.state)));
+					foreach (ContactPerson contact in userList)
+					{
+						contact.print();
+					}
+					break;
+				case 4:
+					userList.Sort(new Comparison<ContactPerson>((x, y) => string.Compare(x.zip, y.zip)));
+					foreach (ContactPerson contact in userList)
+					{
+						contact.print();
+					}
+					break;
 			}
 		}
 	}
