@@ -141,9 +141,9 @@ namespace Day34_AddressBookSystem
 				if (user.firstName.Equals(fname))
 				{
 					check = true;
-					Console.WriteLine($"Contact {fname} alerady presented pls Enter diff. First_Name");
+					Console.WriteLine($"Contact {fname} already exists please enter again");
 					break;
-				}
+				} 
 			}
 			return check;
 		}
