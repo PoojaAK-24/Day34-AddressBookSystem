@@ -15,7 +15,7 @@ namespace Day34_AddressBookSystem
 				Console.WriteLine("1. Add_Contact \n2. Display_Contact \n3. Exit");
 				Console.WriteLine("Enter Your Choice:");
 				int input = Convert.ToInt32(Console.ReadLine());
-				switch (input)
+				switch (input) 
 				{
 					case 1:
 						addUser();
