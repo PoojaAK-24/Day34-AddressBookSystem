@@ -11,7 +11,7 @@ namespace Day34_AddressBookSystem
 		public String address;
 		public String city;
 		public String state;
-		public String zip; 
+		public String zip;
 		public String contact;
 		public String email;
 
