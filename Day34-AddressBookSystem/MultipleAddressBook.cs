@@ -38,7 +38,7 @@ namespace Day34_AddressBookSystem
 			if (userList.Count() > 0)
 			{
 				Console.WriteLine("----------------------------------------------------------------------");
-				Console.WriteLine("FirstName   LastName   Address,  City,  State,  Zip,   Contact,  Email");
+				Console.WriteLine("FirstName  LastName  Address,  City,  State,  Zip,   Contact,   Email");
 				Console.WriteLine("----------------------------------------------------------------------");
 				foreach (ContactPerson cont in userList)
 				{
@@ -186,7 +186,7 @@ namespace Day34_AddressBookSystem
 					{
 						contact.print();
 					}
-					break; 
+					break;
 
 				case 3:
 					userList.Sort(new Comparison<ContactPerson>((x, y) => string.Compare(x.state, y.state)));
@@ -201,8 +201,17 @@ namespace Day34_AddressBookSystem
 					{
 						contact.print();
 					}
-					break;
+					break; 
 			}
+		}
+		public void writeInTxtFile()
+		{
+			FileWriter.WriteUsingStreamWriter(userList);
+			Console.WriteLine("Contacts Stored in TextFile.");
+		}
+		public void readFromTxtFile()
+		{
+			FileWriter.readFile();
 		}
 	}
 }
