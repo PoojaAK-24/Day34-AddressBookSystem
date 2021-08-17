@@ -30,7 +30,7 @@ namespace Day34_AddressBookSystem
 						EditContact(fname);
 						break;
 					case 4:
-						Console.Write("Enter FirstName U want to Delete: ");
+						Console.Write("Enter FirstName U want to Delet : ");
 						string deletName = Console.ReadLine();
 						DeleteContact(deletName);
 						break;
@@ -139,6 +139,5 @@ namespace Day34_AddressBookSystem
 				}
 			}
 		}
-
 	}
 }
