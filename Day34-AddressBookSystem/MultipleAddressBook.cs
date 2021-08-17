@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Day34_AddressBookSystem
 {
-	class MultipleAddressBook
+	class MultipleAddressBook 
 	{
 		public List<ContactPerson> userList;
 		public MultipleAddressBook()
@@ -88,7 +88,7 @@ namespace Day34_AddressBookSystem
 			}
 		}
 
-		public void DeletContact(string Fname)
+		public void DeleteContact(string Fname)
 		{
 			int size = userList.Count;
 			int check = 0;
@@ -111,16 +111,24 @@ namespace Day34_AddressBookSystem
 		}
 		public void SearchContact(string place)
 		{
+			List<string> person = new List<string>();
 			bool exits = isPlaceExist(place);
 			if (exits)
 			{
+				Console.WriteLine("Contacts From Place: " + place);
 				foreach (ContactPerson user in userList.FindAll(x => x.address.Equals(place)).ToList())
 				{
-					user.print();
+					string name = user.firstName + " " + user.lastName;
+					person.Add(name);
 				}
 				foreach (ContactPerson user in userList.FindAll(x => x.state.Equals(place)).ToList())
 				{
-					user.print();
+					string name = user.firstName + " " + user.lastName;
+					person.Add(name);
+				}
+				foreach (string val in person)
+				{
+					Console.WriteLine(val);
 				}
 			}
 			else
@@ -130,10 +138,10 @@ namespace Day34_AddressBookSystem
 		}
 		public bool isPlaceExist(string place)
 		{
-			if (this.userList.Any(e => e.address == place) || this.userList.Any(e => e.state == place))
+			if (this.userList.Any(e => e.city == place) || this.userList.Any(e => e.state == place))
 				return true;
 			else
-				return false; 
+				return false;
 		}
 	}
 }

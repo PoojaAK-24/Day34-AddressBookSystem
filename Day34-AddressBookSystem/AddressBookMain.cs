@@ -23,7 +23,7 @@ namespace Day34_AddressBookSystem
 					case 1:
 						Console.Write("Enter AddressBook Name : ");
 						string book = Console.ReadLine();
-						bool check = DuplicatAddress(book);
+						bool check = DuplicateAddress(book);
 						if (check)
 						{
 							Console.Write("Enter AddressBook Name again : ");
@@ -93,7 +93,7 @@ namespace Day34_AddressBookSystem
 				}
 			}
 		}
-		public static bool DuplicatAddress(string bookName)
+		public static bool DuplicateAddress(string bookName)
 		{
 			bool check = false;
 			foreach (var address in addressBookDict)
@@ -103,7 +103,7 @@ namespace Day34_AddressBookSystem
 				{
 					check = true;
 					Console.Clear();
-					Console.WriteLine($"AddressBook-> {bookName} <-alerady presented pls Enter Diff. Name");
+					Console.WriteLine($"AddressBook-> {bookName} <-already exist please enter again");
 					break;
 				}
 			}
@@ -137,7 +137,7 @@ namespace Day34_AddressBookSystem
 			while (flag)
 			{
 				Console.WriteLine("******WELCOME TO ADDRESS BOOK******");
-				Console.WriteLine("1. Add_Contact \n2. Display_Contact \n3. Delete_Contact \n4. Update_Contact \n5. Search_FromAllContact \n6. Exit");
+				Console.WriteLine("1. Add_Contact \n2. Display_Contact \n3. Delet_Contact \n4. Update_Contact \n5. Search_FromAllContact \n6. Exit");
 				Console.WriteLine("Enter Your Choice:");
 				int input = Convert.ToInt32(Console.ReadLine());
 				switch (input)
@@ -154,12 +154,12 @@ namespace Day34_AddressBookSystem
 					case 3:
 						Console.Write("Enter FirstName U want to Delete : ");
 						string deletName = Console.ReadLine();
-						addressBookDict[bookname].DeletContact(deletName);
+						addressBookDict[bookname].DeleteContact(deletName);
 						break;
 					case 4:
 						Console.WriteLine("Enter FirstName U want To Update");
 						string fname = Console.ReadLine();
-						addressBookDict[bookname].DeletContact(fname);
+						addressBookDict[bookname].DeleteContact(fname);
 						break;
 					case 5:
 						Console.Write("Enter City Or State name U want To Search : ");
@@ -168,7 +168,7 @@ namespace Day34_AddressBookSystem
 						{
 							addressBookDict[addbook].SearchContact(place);
 						}
-						break; 
+						break;
 					case 6:
 						flag = false;
 						break;
@@ -177,6 +177,7 @@ namespace Day34_AddressBookSystem
 						break;
 				}
 			}
+
 		}
 	}
 }
